@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
 
 
-    get 'begin/' => 'BerlynsController#begin'
+    get 'begin/' => 'berlyns#begin'
+    get 'unit-bill/' => 'berlyns#begin'
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
