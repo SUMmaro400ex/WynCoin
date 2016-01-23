@@ -15,7 +15,7 @@ RSpec.describe "Epochs", :type => :request do
     end
     it "should respond with epoch token" do
       epoch_token = response.body["epoch_token"]
-      epoch = Epoch.find_by_token(epoch_token)
+      epoch = Epoch.find_by_token!(epoch_token)
       expect(epoch.account).to eq(account)
     end
     it "should respond with user balance"

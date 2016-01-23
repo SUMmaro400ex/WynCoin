@@ -1,5 +1,6 @@
 class Account < ActiveRecord::Base
   before_create :generate_authentication_token!
+  has_many :epochs
 
   def generate_authentication_token!
     begin
