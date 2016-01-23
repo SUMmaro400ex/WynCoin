@@ -48,6 +48,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
+    coinbase (4.1.0)
     concurrent-ruby (1.0.0)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
@@ -163,6 +164,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
+  coinbase
   jbuilder (~> 2.0)
   jquery-rails
   postgresql
