@@ -4,7 +4,6 @@ class BerlynsController < ApplicationController
   end
 
   def unit_bill
-
   end
 
 end

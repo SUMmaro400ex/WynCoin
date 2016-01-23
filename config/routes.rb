@@ -7,9 +7,8 @@ Rails.application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-
-
-    get 'begin/' => 'BerlynsController#begin'
+  
+    get 'begin/' => 'berlyns#begin'
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
