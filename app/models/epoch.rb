@@ -11,4 +11,8 @@ class Epoch < ActiveRecord::Base
   def generate_token
     self.token = Digest::SHA1.hexdigest Time.now.to_s
   end
+
+  def amount
+    self.transactions.pluck(:amount).reduce(:+)
+  end
 end

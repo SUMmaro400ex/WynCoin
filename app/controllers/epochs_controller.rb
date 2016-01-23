@@ -9,7 +9,7 @@ class EpochsController < ApplicationController
   end
 
   def close
-    @epoch.close
+    CloseEpoch.call(@epoch)
     render json: { status: :ok, user_balance: @user.balance  }
   end
 

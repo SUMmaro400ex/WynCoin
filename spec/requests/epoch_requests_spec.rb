@@ -27,7 +27,9 @@ RSpec.describe "Epochs", :type => :request do
   describe "POST /epochs/:epoch_token/close" do
     let(:epoch) { user.epochs.first }
     before do
+      allow(TransferBitcoin).to receive(:call).and_return(true)
       post_with_token "/epochs/#{epoch.token}/close"
+      @epoch = Epoch.find_by_token(epoch.token)
     end
 
     it "should respond ok" do
@@ -39,9 +41,11 @@ RSpec.describe "Epochs", :type => :request do
     end
 
     it "should close the epoch" do
-      expect(Epoch.find_by_token(epoch.token).status).to eq("closed")
+      expect(@epoch.status).to eq("closed")
     end
-    it "should dispatch funds"
 
+    it "should dispatch funds" do
+      expect(TransferBitcoin).to have_received(:call).with(@epoch.account, @epoch.amount)
+    end
   end
 end
