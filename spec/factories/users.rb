@@ -9,7 +9,8 @@ FactoryGirl.define do
       # posts_count is declared as a transient attribute and available in
       # attributes on the factory, as well as the callback via the evaluator
       transient do
-        epochs_count 5
+        epochs_count 0
+        purchases_count 1
       end
 
       # the after(:create) yields two values; the user instance itself and the
@@ -18,6 +19,7 @@ FactoryGirl.define do
       # to create and we make sure the user is associated properly to the post
       after(:create) do |user, evaluator|
         create_list(:epoch_with_transactions, evaluator.epochs_count, user: user)
+        create_list(:purchase, evaluator.purchases_count, user: user)
       end
     end
   end

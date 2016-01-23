@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  get 'transactions/create'
+
   post '/epochs/new' => 'epochs#create'
+  post '/epochs/:epoch_token/transactions/new' => 'transactions#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

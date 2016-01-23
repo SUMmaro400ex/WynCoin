@@ -38,6 +38,8 @@ group :development, :test do
   gem 'faker'
   gem 'byebug'
   gem 'rspec-rails'
+  gem 'pry-byebug'
+  gem 'database_cleaner'
 end
 
 group :development do

@@ -1,6 +1,5 @@
 FactoryGirl.define do
-  factory :transaction do
-    epoch
+  factory :purchase do
     amount { Faker::Number.number(6) }
   end
 

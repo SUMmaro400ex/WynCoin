@@ -12,4 +12,8 @@ module Helpers
   def retrieve_api_token
     {'Authorization' => "Token token=\"#{account.api_token}\""}
   end
+
+  def json_response
+    JSON.parse(response.body).with_indifferent_access
+  end
 end
