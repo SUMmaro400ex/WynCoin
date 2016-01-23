@@ -5,10 +5,18 @@ class CurrencyConverter
     if type == :usd
       rate = @client.buy_price
       if rate
-        amount / rate
+        amount.to_f / rate
       end
     elsif type == :satoshi
-      amount / 100000000
+      if amount.length <= 8
+        (8 - amount.length).times do |i|
+          amount.prepend("0")
+        end
+        amount.prepend(".")
+      else
+        position = amount.length - 8
+        amount.insert(position, ".")
+      end
     end
   end
 
