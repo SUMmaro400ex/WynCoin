@@ -8,8 +8,9 @@ class TransferBitcoin
     btc = CurrencyConverter.get(amount, :satoshi)
     if address && amount && origin_user_id
       account.send(to: address, amount: btc.to_s , currency: "BTC", description: "Payment")
+      return true
+    else
+      return false
     end
-      #return true or false for succ3ss
-
   end
 end
