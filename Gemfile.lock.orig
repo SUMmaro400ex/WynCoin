@@ -182,10 +182,13 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
-  coinbase
+<<<<<<< HEAD
   database_cleaner
   factory_girl_rails
   faker
+=======
+  coinbase
+>>>>>>> master
   jbuilder (~> 2.0)
   jquery-rails
   postgresql

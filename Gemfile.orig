@@ -36,8 +36,12 @@ gem 'coinbase'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+<<<<<<< HEAD
   gem 'factory_girl_rails'
   gem 'faker'
+=======
+
+>>>>>>> master
   gem 'byebug'
   gem 'rspec-rails'
   gem 'pry-byebug'
