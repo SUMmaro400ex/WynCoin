@@ -21,8 +21,13 @@ class ApplicationController < ActionController::Base
     elsif session[:user_id] && session[:user_type] == "account"
       @current_user = Account.find_by(session[:user_id])
     else
-      @current_user = authenticate_with_http_basic { |u, p| Account.find_by(api_key: u) }
+      @current_user = authenticate_acount_with_token
     end
   end
 
-end
+  def authenticate_acount_with_token
+      authenticate_with_http_token do |token, options|
+        Account.find_by(api_token: token)
+      end
+    end
+  end
