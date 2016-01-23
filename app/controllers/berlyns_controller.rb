@@ -1,5 +1,5 @@
 class BerlynsController < ApplicationController
-
+  
   def begin
     auth_token = params[:token]
     facebook_id = params[:facebook_id]

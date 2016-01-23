@@ -36,9 +36,12 @@ gem 'coinbase'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-
+  gem 'factory_girl_rails'
+  gem 'faker'
   gem 'byebug'
   gem 'rspec-rails'
+  gem 'pry-byebug'
+  gem 'database_cleaner'
 end
 
 group :development do

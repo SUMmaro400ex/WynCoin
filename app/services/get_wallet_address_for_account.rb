@@ -1,10 +1,6 @@
 class GetWalletAddressForAccount
-  def self.call(account_id)
-    @account = Account.find(account_id)
-    if @account
-      @account.bitcoin_address
-    else
-      nil
-    end
+  def self.call(account)
+    account = account.is_a?(Account) ? account : Account.find(account)
+    account && account.bitcoin_address
   end
 end

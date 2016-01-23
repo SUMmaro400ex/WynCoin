@@ -1,10 +1,10 @@
 class TransferBitcoin
   require 'coinbase/wallet'
 
-  def self.call(account_id, amount)
+  def self.call(account, amount)
     client = Client.get
     account = client.primary_account
-    address = GetWalletAddressForAccount.call(account_id)
+    address = GetWalletAddressForAccount.call(account)
     btc = CurrencyConverter.call(amount, :satoshi)
     if address && amount
       account.send(to: address, amount: btc.to_s , currency: "BTC", description: "Payment")
@@ -13,4 +13,5 @@ class TransferBitcoin
       false
     end
   end
+  
 end
