@@ -16,9 +16,9 @@
      <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
 
-
+<!--
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
+</fb:login-button> -->
 
 <div id="status">
 </div>
@@ -35,23 +35,12 @@
     <h3>Starting at $0.01</h3>
 
   <div class="wrapper">
-    <button type="button" onclick="Nice.">Get Started</button></div>
+<button type="button" onclick="Nice.">Get Started</button>
+  </div>
   </div>
   <br>
 </header>
-<!--
-<header>
-  <div class="baner-text">
-    <h1>Welcome to Berlin</h1>
-    <br>
-    <h2>Tired of monthly premiums?</h2>
-    <h2>Pay <em>only</em> for what you use. </h2>
-    <h3>Starting at $0.01</h3>
-  </div>
-    <br>
-  <button type="button" onclick="Nice.">Get Started</button>
 
-</header> -->
 <script>
 // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -87,20 +76,11 @@
 
 
 
-
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '1756115841290804',
-        cookie     : true,  // enable cookies to allow the server to access
-
 window.fbAsyncInit = function() {
 FB.init({
 appId      : '<%= ENV["FB_ID"] %>',
 cookie     : true,  // enable cookies to allow the server to access
 
-                    // the session
-                    xfbml      : true,  // parse social plugins on this page
-                    version    : 'v2.2' // use version 2.2
 
                       // the session
   xfbml      : true,  // parse social plugins on this page
