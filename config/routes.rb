@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :users
-  resources :charges
+  resources :purchases
   resources :users
+
   root 'home#index'
   get 'transactions/create'
 
