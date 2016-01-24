@@ -34,6 +34,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+gem 'rack-cors'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'factory_girl_rails'
@@ -42,11 +45,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry-byebug'
   gem 'database_cleaner'
-
-#  gem 'capybara-webkit'
-
-  # gem 'capybara-webkit'
-
+  gem 'capybara-webkit'
 end
 
 group :development do
@@ -55,4 +54,8 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
