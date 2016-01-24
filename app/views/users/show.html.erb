@@ -1,4 +1,6 @@
 <h1>Welcome, <%= @user.name %></h1>
+<h2>Your balance: <%= @user.balance %> satoshis</h2>
+<h2>Your Token (for developers): <%= @user.facebook_id %></h2>
 <%= form_tag purchases_path do %>
 <article>
   <label class="amount">
