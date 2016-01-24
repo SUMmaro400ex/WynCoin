@@ -8,6 +8,13 @@
     <span>Add $10 of Bitcoin!</span>
   </label>
 </article>
+<div id="login-button">
+	<script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+             data-description="Bitcoin rate"
+             data-amount="1000">
+    </script>
+</div>
 </div>
 <br>
 <div id="transaction-history">
@@ -20,12 +27,5 @@
 		<p>You don't have any transactions yet</p>
 	<% end %>
 </div>
-
-<div id="login-button">
-	<script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-             data-description="Bitcoin rate"
-             data-amount="1000"></script>
-         </div>
 
 <% end %>
