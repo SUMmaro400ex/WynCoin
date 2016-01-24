@@ -10,7 +10,7 @@ class EpochsController < ApplicationController
 
   def close
     CloseEpoch.call(@epoch)
-    render json: { status: :ok, user_balance: @user.balance  }
+    render json: { status: :ok, user_balance: @user.balance, epoch_amount: @epoch.amount  }
   end
 
   private
