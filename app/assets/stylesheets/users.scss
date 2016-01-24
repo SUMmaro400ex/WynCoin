@@ -1,5 +1,9 @@
+$font-stack: 'helvetica neue', sans-serif;
+$base-color: #ffffff;
+
 div#dashboard{
-	font-family: 'Roboto', sans-serif;
+	font-family: $font-stack;
+	color: $base-color;
 	text-align: center;
 }
 div#login-button{
