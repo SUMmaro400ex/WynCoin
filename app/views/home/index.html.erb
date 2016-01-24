@@ -7,15 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,300italic' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" href="app/assets/stylesheets/home.scss">
-
-
 </head>
 
 <body>
 
 <div id="jumbotron">
     <div id="fb-root"></div>
+     <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
 
 
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
@@ -25,7 +24,22 @@
 </div>
 
 <!-- Content/ Header -->
+<header>
+  <br>
+  <br>
+  <h1>Welcome to Berlin</h1>
+  <%= image_tag("BerlinLogo.png") %>
 
+    <h2>Tired of monthly premiums?</h2>
+    <h2>Pay <em>only</em> for what you use. </h2>
+    <h3>Starting at $0.01</h3>
+
+  <div class="wrapper">
+    <button type="button" onclick="Nice.">Get Started</button></div>
+  </div>
+  <br>
+</header>
+<!--
 <header>
   <div class="baner-text">
     <h1>Welcome to Berlin</h1>
@@ -37,7 +51,7 @@
     <br>
   <button type="button" onclick="Nice.">Get Started</button>
 
-</header>
+</header> -->
 <script>
 // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -73,6 +87,7 @@
 
 
 
+
     window.fbAsyncInit = function() {
       FB.init({
         appId      : '1756115841290804',
@@ -86,6 +101,13 @@ cookie     : true,  // enable cookies to allow the server to access
                     // the session
                     xfbml      : true,  // parse social plugins on this page
                     version    : 'v2.2' // use version 2.2
+
+                      // the session
+  xfbml      : true,  // parse social plugins on this page
+  version    : 'v2.2' // use version 2.2
+});
+}
+
 
 window.fbAsyncInit = function() {
 FB.init({
@@ -158,5 +180,19 @@ FB.api('/me', function(response) {
 });
 }
 </script>
+
+<!--
+ // Below we include the Login Button social plugin. This button uses
+ // the JavaScript SDK to present a graphical Login button that triggers
+ // the FB.login() function when clicked.
+-->
+
+
+
+
+<div id="status">
+</div>
+
+
 </body>
 </html>

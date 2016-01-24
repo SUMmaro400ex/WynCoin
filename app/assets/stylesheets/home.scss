@@ -83,8 +83,8 @@ body {
 }
 
 header {
-  background-image: $berlinLogo;
-  height: 700px;
+  // background-image: $berlinLogo;
+  height: 800px;
   overflow: auto;
   background-position: 100% 120px;
   background-repeat: no-repeat;
@@ -123,7 +123,6 @@ header {
     }
 }
       button {
-        position: absolute;
         margin: auto;
         border: 0;
         cursor: pointer;

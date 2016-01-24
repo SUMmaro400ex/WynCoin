@@ -18,5 +18,8 @@ RSpec.describe "Transactions", :type => :request do
     it "should respond with new user balance" do
       expect(json_response[:user_balance].to_i).to eq(@old_balance - @transaction_amount)
     end
+    it "should respond with epoch amount" do
+      expect(json_response[:epoch_amount].to_i).to eq(user.epochs.first.amount)
+    end
   end
 end
