@@ -39,11 +39,12 @@ RSpec.describe "Epochs", :type => :request do
     it "should respond with user balance" do
       expect(json_response["user_balance"].to_i).to eq(user.balance)
     end
-
+    it "should respond with final epoch amount" do
+      expect(json_response[:epoch_amount].to_i).to eq(@epoch.amount)
+    end
     it "should close the epoch" do
       expect(@epoch.status).to eq("closed")
     end
-
     it "should dispatch funds" do
       expect(TransferBitcoin).to have_received(:call).with(@epoch.account, @epoch.amount)
     end
