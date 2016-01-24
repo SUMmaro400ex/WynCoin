@@ -17,17 +17,26 @@ class ApplicationController < ActionController::Base
 
   def current_user
     if session[:user_id] && session[:user_type] == "user"
-      @current_user = User.find_by(session[:user_id])
+      @current_user = User.find(session[:user_id])
     elsif session[:user_id] && session[:user_type] == "account"
-      @current_user = Account.find_by(session[:user_id])
+      @current_user = Account.find(session[:user_id])
     else
       @current_user = authenticate_acount_with_token
     end
   end
 
   def authenticate_acount_with_token
-      authenticate_with_http_token do |token, options|
-        Account.find_by(api_token: token)
-      end
+    authenticate_with_http_token do |token, options|
+      Account.find_by(api_token: token)
     end
   end
+
+  def redirect_to_profile(user = @current_user)
+    case user.class.name
+    when "Account"
+      redirect_to account_path(user)
+    when "User"
+      redirect_to user_path(user)
+    end
+  end
+end

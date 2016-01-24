@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
 
+  resources :accounts
+  resources :accounts
   root 'home#index'
   get 'transactions/create'
 
   post '/epochs/new' => 'epochs#create'
   post '/epochs/:epoch_token/transactions/new' => 'transactions#create'
   post '/epochs/:epoch_token/close' => 'epochs#close'
+
+  resources :accounts
+  get '/login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  get 'logout' => 'sessions#destroy', as: 'logout'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
