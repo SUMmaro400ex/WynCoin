@@ -58,5 +58,6 @@ group :development do
 end
 
 group :production do
+  gem 'rack-cors'
   gem 'rails_12factor'
 end
