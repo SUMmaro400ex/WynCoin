@@ -11,8 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @purchase = Purchase.new
-    @amounts = []
-    @accounts = []
+    @transactions = []
     @user.epochs.each do |e|
       @transactions << e.account.company_name + " " + CurrencyConverter.call(e.amount.to_s, :satoshi) + " Bitcoin"
     end
