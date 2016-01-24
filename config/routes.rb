@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   resources :accounts
-  resources :accounts
   root 'home#index'
   get 'transactions/create'
 
@@ -9,7 +8,7 @@ Rails.application.routes.draw do
   post '/epochs/:epoch_token/transactions/new' => 'transactions#create'
   post '/epochs/:epoch_token/close' => 'epochs#close'
 
-  resources :accounts
+  resources :charges
   get '/login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy', as: 'logout'
