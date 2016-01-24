@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
 		self.first_name, self.last_name = full_name.split(" ")
 	end
 
+  def name
+    self.first_name + " " + self.last_name
+  end
+
 end
