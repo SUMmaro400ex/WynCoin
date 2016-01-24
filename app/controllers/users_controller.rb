@@ -14,11 +14,7 @@ class UsersController < ApplicationController
     @amounts = []
     @accounts = []
     @user.epochs.each do |e|
-      @total = 0
-      e.transactions.each do |t|
-        @total += t.amount
-      end
-      @transactions << e.account.company_name + " " + CurrencyConverter.call(@total.to_s, :satoshi) + " Bitcoin"
+      @transactions << e.account.company_name + " " + CurrencyConverter.call(@e.amount.to_s, :satoshi) + " Bitcoin"
     end
   end
 
