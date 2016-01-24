@@ -9,12 +9,12 @@ class SessionsController < ApplicationController
     user_type = params[:user_type]
     case user_type
     when "account"
-      user = Account.find_by_email(user_email)
+      user = Account.find_by_email(user_email).authenticate(user_password)
     when "user"
-      user = User.find_by_email(user_email)
+      user = User.find_by(facebook_id: params[:facebook_id]) || register_user
     end
 
-    if user && user.authenticate(user_password)
+    if user
       @current_user = user
       session[:user_id] = user.id
       session[:user_type] = user_type.to_sym
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
       redirect_to_profile
     else
       flash[:error] = "Invalid Username or Password"
-      render :login
+      redirect_to login_path
     end
   end
 
@@ -31,5 +31,15 @@ class SessionsController < ApplicationController
     session[:user_type] = nil
     flash[:message] = "Logged out."
     redirect_to login_path
+  end
+
+  private
+
+  def register_user
+      user = User.new
+      user.name= params[:name]
+      user.facebook_id = params[:facebook_id]
+      user.save
+      user
   end
 end

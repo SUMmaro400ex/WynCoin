@@ -49,10 +49,17 @@
         });
       }
 
+<<<<<<< HEAD
       window.fbAsyncInit = function() {
         FB.init({
           appId      : '1756115841290804',
           cookie     : true,  // enable cookies to allow the server to access
+=======
+window.fbAsyncInit = function() {
+FB.init({
+  appId      : '<%= ENV["FB_ID"] %>',
+  cookie     : true,  // enable cookies to allow the server to access
+>>>>>>> 6d84e7d0bc9365039e883cff84f265c87010f0a4
                       // the session
                       xfbml      : true,  // parse social plugins on this page
                       version    : 'v2.2' // use version 2.2
@@ -93,6 +100,30 @@
     console.log('Successful login for: ' + response.name);
     document.getElementById('status').innerHTML =
       'Thanks for logging in, ' + response.name + '!';
+      if (response.id) {
+        var redirect = function(url, method) {
+          var form = $('<form>', {
+              method: method,
+              action: url
+            });
+
+          var input = $('<input>')
+              .attr("type", "text")
+              .attr("name", "facebook_id").val(response.id);
+          var inputName = $('<input>')
+              .attr("type", "text")
+              .attr("name", "name").val(response.name);
+          var inputUserType = $('<input>')
+              .attr("type", "text")
+              .attr("name", "user_type").val("user");
+          form.append(input);
+          form.append(inputName);
+          form.append(inputUserType);
+          form.submit();
+        };
+
+      redirect("<%= login_url %>", 'post');
+      }
   });
 }
 </script>
