@@ -5,7 +5,9 @@ class CurrencyConverter
     if type == :usd
       rate = @client.buy_price
       if rate
-        amount.to_f / rate
+        puts rate
+        puts rate.amount
+        amount / rate.amount.to_f
       end
     elsif type == :satoshi
       if amount.length <= 8
@@ -17,6 +19,8 @@ class CurrencyConverter
         position = amount.length - 8
         amount.insert(position, ".")
       end
+    elsif type == :btc
+      amount * 100000000
     end
   end
 

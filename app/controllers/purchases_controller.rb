@@ -20,7 +20,8 @@ class PurchasesController < ApplicationController
 	  if charge.paid
 	  	@purchase = Purchase.new
 	  	@purchase.user_id = current_user.id
-	  	@purchase.amount = @amount.to_f/10.0
+	  	btc = CurrencyConverter.call(@amount/100.0, :usd)
+	  	@purchase.amount = CurrencyConverter.call(btc, :btc)
 	  	@purchase.save
 	  end
 
