@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :users
   resources :accounts
-  resources :users
   root 'home#index'
   get 'transactions/create'
 
