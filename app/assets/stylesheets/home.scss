@@ -8,7 +8,7 @@
 /* Smartphones (portrait and landscape) ----------- */
 
 $font-stack: 'helvetica neue', sans-serif;
-$berlinLogo: url('BerlinLogo.png');
+
 
 
 @media only screen
@@ -83,7 +83,6 @@ body {
 }
 
 header {
-  // background-image: $berlinLogo;
   height: 800px;
   overflow: auto;
   background-position: 100% 120px;
