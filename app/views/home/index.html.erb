@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,11 +41,11 @@ function checkLoginState() {
 
 window.fbAsyncInit = function() {
 FB.init({
-  appId      : '1756115841290804',
-  cookie     : true,  // enable cookies to allow the server to access
-                      // the session
-  xfbml      : true,  // parse social plugins on this page
-  version    : 'v2.2' // use version 2.2
+ appId      : '1756115841290804',
+ cookie     : true,  // enable cookies to allow the server to access
+                     // the session
+ xfbml      : true,  // parse social plugins on this page
+ version    : 'v2.2' // use version 2.2
 });
 
 // Now that we've initialized the JavaScript SDK, we call
@@ -63,7 +61,8 @@ FB.init({
 // These three cases are handled in the callback function.
 
 FB.getLoginStatus(function(response) {
-  statusChangeCallback(response);
+
+ statusChangeCallback(response);
 });
 
 };
@@ -114,9 +113,9 @@ function testAPI() {
 </script>
 
 <!--
-  // Below we include the Login Button social plugin. This button uses
-  // the JavaScript SDK to present a graphical Login button that triggers
-  // the FB.login() function when clicked.
+ // Below we include the Login Button social plugin. This button uses
+ // the JavaScript SDK to present a graphical Login button that triggers
+ // the FB.login() function when clicked.
 -->
 
 

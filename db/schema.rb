@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(version: 20160124014915) do
     t.string   "company_name"
   end
 
+  create_table "charges", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "epochs", force: :cascade do |t|
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
