@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  resources :charges
+
   root 'home#index'
+  get 'transactions/create'
+
+  post '/epochs/new' => 'epochs#create'
+  post '/epochs/:epoch_token/transactions/new' => 'transactions#create'
+  post '/epochs/:epoch_token/close' => 'epochs#close'
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -9,9 +18,6 @@ Rails.application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-
-    get 'begin/' => 'berlyns#begin'
-    get 'unit-bill/' => 'berlyns#begin'
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
