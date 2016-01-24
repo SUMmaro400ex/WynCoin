@@ -9,10 +9,10 @@ class ApplicationController < ActionController::Base
   def authenticate
     if current_user.nil?
       respond_to do |format|
-        format.html { flash[:error] = 'Not authorized.'; redirect_to '/login' }
+        format.html { flash[:error] = 'Not authorized.'; redirect_to '/home' }
         format.json { render json: { errors: "Not authenticated" }, status: :unauthorized }
       end
-    end 
+    end
   end
 
   def current_user

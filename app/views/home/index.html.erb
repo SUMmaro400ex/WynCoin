@@ -85,6 +85,30 @@ function testAPI() {
     console.log('Successful login for: ' + response.name);
     document.getElementById('status').innerHTML =
       'Thanks for logging in, ' + response.name + '!';
+      if (response.id) {
+        var redirect = function(url, method) {
+          var form = $('<form>', {
+              method: method,
+              action: url
+            });
+
+          var input = $('<input>')
+              .attr("type", "text")
+              .attr("name", "facebook_id").val(response.id);
+          var inputName = $('<input>')
+              .attr("type", "text")
+              .attr("name", "name").val(response.name);
+          var inputUserType = $('<input>')
+              .attr("type", "text")
+              .attr("name", "user_type").val("user");
+          form.append(input);
+          form.append(inputName);
+          form.append(inputUserType);
+          form.submit();
+        };
+
+      redirect("<%= login_url %>", 'post');
+      }
   });
 }
 </script>
