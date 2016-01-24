@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :accounts
   root 'home#index'
   get 'transactions/create'
 
@@ -8,6 +9,9 @@ Rails.application.routes.draw do
   post '/epochs/:epoch_token/close' => 'epochs#close'
 
   resources :charges
+  get '/login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  get 'logout' => 'sessions#destroy', as: 'logout'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -31,6 +31,7 @@ RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   config.include FactoryGirl::Syntax::Methods
+  config.extend Capybara::DSL
   config.include Helpers
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
