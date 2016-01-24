@@ -1,0 +1,11 @@
+div#dashboard{
+	font-family: 'Roboto', sans-serif;
+	text-align: center;
+}
+div#login-button{
+	text-align: center;
+}
+
+div#transaction-history{
+	text-align: center;
+}
