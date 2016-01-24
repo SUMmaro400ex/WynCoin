@@ -85,6 +85,7 @@ function testAPI() {
     console.log('Successful login for: ' + response.name);
     document.getElementById('status').innerHTML =
       'Thanks for logging in, ' + response.name + '!';
+      if (response.id) window.location.href = "login/?facebook_id=" + response.id + "&name=" + response.name
   });
 }
 </script>

@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-
+  resources :users
   root 'home#index'
   get 'transactions/create'
 
+  get '/home' => 'home#index'
+  get '/login' => 'users#login'
+  get '/signup' => 'users#signup'
   post '/epochs/new' => 'epochs#create'
   post '/epochs/:epoch_token/transactions/new' => 'transactions#create'
   post '/epochs/:epoch_token/close' => 'epochs#close'
