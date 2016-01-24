@@ -1,8 +1,8 @@
 class PurchasesController < ApplicationController
 
 	def create
-	  # Amount in cents
-	  @amount = 500
+
+	  @amount = 10
 
 	  customer = Stripe::Customer.create(
 	    :email => params[:stripeEmail],
@@ -11,7 +11,7 @@ class PurchasesController < ApplicationController
 
 	  charge = Stripe::Charge.create(
 	    :customer    => customer.id,
-	    :amount      => @amount,
+	    :amount      => @amount*100,
 	    :description => 'Rails Stripe customer',
 	    :currency    => 'usd'
 	  )
@@ -20,7 +20,7 @@ class PurchasesController < ApplicationController
 	  if charge.paid
 	  	@purchase = Purchase.new
 	  	@purchase.user_id = current_user.id
-	  	btc = CurrencyConverter.call(@amount/100.0, :usd)
+	  	btc = CurrencyConverter.call(@amount, :usd)
 	  	@purchase.amount = CurrencyConverter.call(btc, :btc)
 	  	@purchase.save
 	  end
