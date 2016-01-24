@@ -31,23 +31,13 @@
     <h3>Starting at $0.01</h3>
 
   <div class="wrapper">
-    <button type="button" onclick="Nice.">Get Started</button></div>
+<%= link_to '<button type="button">Get Started</button>'.html_safe, 'signup', :method => :get %>
+
+  </div>
   </div>
   <br>
 </header>
-<!--
-<header>
-  <div class="baner-text">
-    <h1>Welcome to Berlin</h1>
-    <br>
-    <h2>Tired of monthly premiums?</h2>
-    <h2>Pay <em>only</em> for what you use. </h2>
-    <h3>Starting at $0.01</h3>
-  </div>
-    <br>
-  <button type="button" onclick="Nice.">Get Started</button>
 
-</header> -->
 <script>
 // This is called with the results from from FB.getLoginStatus().
     function statusChangeCallback(response) {
@@ -79,7 +69,7 @@
           statusChangeCallback(response);
         });
       }
-      
+
 window.fbAsyncInit = function() {
 FB.init({
     appId      : '<%= ENV["FB_ID"] %>',
@@ -143,6 +133,7 @@ FB.init({
   });
 }
 </script>
+
 
 <!--
  // Below we include the Login Button social plugin. This button uses
